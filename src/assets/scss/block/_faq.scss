@@ -54,7 +54,6 @@
 
     & .faq_question {
       position: absolute;
-      // transform: translateY(0);
       opacity: 1;
       transition: 0.5s;
       cursor: auto;
@@ -67,24 +66,18 @@
       transition: 0.5s;
       visibility: hidden;
       cursor: auto;
-
-      // transform: translateX(+10000px);
     }
 
     &:hover {
       .faq_question {
-        // transform: translateX(-10000px);
         opacity: 0;
         visibility: hidden;
       
       }
 
       .faq_answer {
-        // transform: translateY(0);
         opacity: 1;
         visibility: visible;
-      
-
       }
     }
   }
