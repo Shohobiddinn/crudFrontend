@@ -9,8 +9,6 @@
             data-aos="fade-down"
             data-aos-duration="500"
           >
-            <!-- {{ introData[7]?.text }}
-             -->
             {{ bannerText1 }} <span>{{ bannerText2 }}</span> {{ bannerText3 }}
           </h3>
         </div>
