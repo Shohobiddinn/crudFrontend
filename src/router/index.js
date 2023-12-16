@@ -6,26 +6,10 @@ let routes = [
 		name: 'not-found',
 		component: () => import('../views/NotFound/NotFound.vue'),
 	},
-
 	{
-		path: '/xozmag',
-		name: 'xozmag',
-		component: () => import('../views/xozmag/xozmag.vue'),
-	},
-	{
-		path: '/output',
-		name: 'output',
-		component: () => import('../views/output/output.vue'),
-	},
-	{
-		path: '/manufacture',
-		name: 'manufacture',
-		component: () => import('../views/manufacture/manufacture.vue'),
-	},
-	{
-		path: '/structure',
-		name: 'structure',
-		component: () => import('../views/structure/structure.vue'),
+		path: '/home',
+		name: 'home',
+		component: () => import('../views/Home/home.vue'),
 	},
 	{
 		path: '/about',

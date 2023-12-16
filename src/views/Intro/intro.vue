@@ -1,5 +1,5 @@
 <template>
-  <div class="home-pc" >
+  <div class="home-pc">
     <sidebar />
     <div class="hero">
       <div class="container">
@@ -9,30 +9,17 @@
             data-aos="fade-down"
             data-aos-duration="500"
           >
-            Biznesingizga <span>oson</span>
-          </h3>
-          <h3
-            class="hero__title title1 hero__title--bottom"
-            data-aos="fade-up"
-            data-aos-duration="500"
-          >
-            yechim topamiz
+            {{ introData[7]?.text }}
+          
           </h3>
         </div>
         <div class="hero__box" v-else>
-          <h3
-            class="hero__title title2"
-            data-aos="fade-down"
-            data-aos-duration="500"
-          >
-            Ishingizni
-          </h3>
           <h3
             class="hero__title title2 hero__title--bottom"
             data-aos="fade-up"
             data-aos-duration="500"
           >
-            osonlashtiramiz
+            {{ introData[6]?.text }}
           </h3>
         </div>
       </div>
@@ -40,11 +27,11 @@
     <div class="intro">
       <div class="container">
         <div class="intro_top">
-          <div class="intro_top_title">bizning dasturlarimiz:</div>
+          <div class="intro_top_title">{{ introData[5]?.text }}</div>
           <router-link to="/home">
             <div class="intro_top_content">
               <div class="intro_top_content_title">
-                boshqa dasturlarimiz haqida batafsil
+                {{ introData[4]?.text }}
               </div>
               <div class="intro_top_content_icon">
                 <svg
@@ -64,8 +51,8 @@
           </router-link>
         </div>
         <div class="intro_bottom">
-          <div class="content" v-for="item in forServise" :key="item">
-            <router-link :to="item.path" class="content_link">
+          <div class="content">
+            <router-link to="/home" class="content_link">
               <div class="content_icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -77,12 +64,12 @@
                   <g filter="url(#filter0_f_6_159)">
                     <path
                       d="M67.0706 52.0353C67.0706 60.3391 60.3391 67.0706 52.0353 67.0706C43.7315 67.0706 37 60.3391 37 52.0353C37 43.7315 43.7315 37 52.0353 37C60.3391 37 67.0706 43.7315 67.0706 52.0353ZM43.3746 52.0353C43.3746 56.8185 47.2521 60.696 52.0353 60.696C56.8185 60.696 60.696 56.8185 60.696 52.0353C60.696 47.2521 56.8185 43.3746 52.0353 43.3746C47.2521 43.3746 43.3746 47.2521 43.3746 52.0353Z"
-                      :fill="item?.color"
+                      fill="#0085FF"
                     />
                   </g>
                   <path
                     d="M67.0706 52.0353C67.0706 60.3391 60.3391 67.0706 52.0353 67.0706C43.7315 67.0706 37 60.3391 37 52.0353C37 43.7315 43.7315 37 52.0353 37C60.3391 37 67.0706 43.7315 67.0706 52.0353ZM43.3746 52.0353C43.3746 56.8185 47.2521 60.696 52.0353 60.696C56.8185 60.696 60.696 56.8185 60.696 52.0353C60.696 47.2521 56.8185 43.3746 52.0353 43.3746C47.2521 43.3746 43.3746 47.2521 43.3746 52.0353Z"
-                    :fill="item?.color"
+                    fill="#0085FF"
                   />
                   <defs>
                     <filter
@@ -109,10 +96,178 @@
                   </defs>
                 </svg>
               </div>
-              <div class="content_title">{{ item?.title }}</div>
+              <div class="content_title">{{ introData[3]?.text }}</div>
               <div
                 class="content_show"
-                :style="` background:linear-gradient(180deg, ${item?.color} 0%, ${item?.color} 100%);     box-shadow: 0 0  30px ${item?.color};`"
+                style="
+                  background: linear-gradient(180deg, #0085ff 0%, #0085ff 100%);
+                  box-shadow: 0 0 30px #0085ff;
+                "
+              ></div>
+            </router-link>
+          </div>
+          <div class="content">
+            <router-link to="/home" class="content_link">
+              <div class="content_icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="104"
+                  height="104"
+                  viewBox="0 0 104 104"
+                  fill="none"
+                >
+                  <g filter="url(#filter0_f_6_159)">
+                    <path
+                      d="M67.0706 52.0353C67.0706 60.3391 60.3391 67.0706 52.0353 67.0706C43.7315 67.0706 37 60.3391 37 52.0353C37 43.7315 43.7315 37 52.0353 37C60.3391 37 67.0706 43.7315 67.0706 52.0353ZM43.3746 52.0353C43.3746 56.8185 47.2521 60.696 52.0353 60.696C56.8185 60.696 60.696 56.8185 60.696 52.0353C60.696 47.2521 56.8185 43.3746 52.0353 43.3746C47.2521 43.3746 43.3746 47.2521 43.3746 52.0353Z"
+                      fill="#FFB800"
+                    />
+                  </g>
+                  <path
+                    d="M67.0706 52.0353C67.0706 60.3391 60.3391 67.0706 52.0353 67.0706C43.7315 67.0706 37 60.3391 37 52.0353C37 43.7315 43.7315 37 52.0353 37C60.3391 37 67.0706 43.7315 67.0706 52.0353ZM43.3746 52.0353C43.3746 56.8185 47.2521 60.696 52.0353 60.696C56.8185 60.696 60.696 56.8185 60.696 52.0353C60.696 47.2521 56.8185 43.3746 52.0353 43.3746C47.2521 43.3746 43.3746 47.2521 43.3746 52.0353Z"
+                    fill="#FFB800"
+                  />
+                  <defs>
+                    <filter
+                      id="filter0_f_6_159"
+                      x="0.247059"
+                      y="0.247059"
+                      width="103.576"
+                      height="103.576"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feGaussianBlur
+                        stdDeviation="18.3765"
+                        result="effect1_foregroundBlur_6_159"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </div>
+              <div class="content_title">{{ introData[2]?.text }}</div>
+              <div
+                class="content_show"
+                style="
+                  background: linear-gradient(180deg, #ffb800 0%, #ffb800 100%);
+                  box-shadow: 0 0 30px #ffb800;
+                "
+              ></div>
+            </router-link>
+          </div>
+          <div class="content">
+            <router-link to="/home" class="content_link">
+              <div class="content_icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="104"
+                  height="104"
+                  viewBox="0 0 104 104"
+                  fill="none"
+                >
+                  <g filter="url(#filter0_f_6_159)">
+                    <path
+                      d="M67.0706 52.0353C67.0706 60.3391 60.3391 67.0706 52.0353 67.0706C43.7315 67.0706 37 60.3391 37 52.0353C37 43.7315 43.7315 37 52.0353 37C60.3391 37 67.0706 43.7315 67.0706 52.0353ZM43.3746 52.0353C43.3746 56.8185 47.2521 60.696 52.0353 60.696C56.8185 60.696 60.696 56.8185 60.696 52.0353C60.696 47.2521 56.8185 43.3746 52.0353 43.3746C47.2521 43.3746 43.3746 47.2521 43.3746 52.0353Z"
+                      fill="#00FF47"
+                    />
+                  </g>
+                  <path
+                    d="M67.0706 52.0353C67.0706 60.3391 60.3391 67.0706 52.0353 67.0706C43.7315 67.0706 37 60.3391 37 52.0353C37 43.7315 43.7315 37 52.0353 37C60.3391 37 67.0706 43.7315 67.0706 52.0353ZM43.3746 52.0353C43.3746 56.8185 47.2521 60.696 52.0353 60.696C56.8185 60.696 60.696 56.8185 60.696 52.0353C60.696 47.2521 56.8185 43.3746 52.0353 43.3746C47.2521 43.3746 43.3746 47.2521 43.3746 52.0353Z"
+                    fill="#00FF47"
+                  />
+                  <defs>
+                    <filter
+                      id="filter0_f_6_159"
+                      x="0.247059"
+                      y="0.247059"
+                      width="103.576"
+                      height="103.576"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feGaussianBlur
+                        stdDeviation="18.3765"
+                        result="effect1_foregroundBlur_6_159"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </div>
+              <div class="content_title">{{ introData[1]?.text }}</div>
+              <div
+                class="content_show"
+                style="
+                  background: linear-gradient(180deg, #00ff47 0%, #00ff47 100%);
+                  box-shadow: 0 0 30px #00ff47;
+                "
+              ></div>
+            </router-link>
+          </div>
+          <div class="content">
+            <router-link to="/home" class="content_link">
+              <div class="content_icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="104"
+                  height="104"
+                  viewBox="0 0 104 104"
+                  fill="none"
+                >
+                  <g filter="url(#filter0_f_6_159)">
+                    <path
+                      d="M67.0706 52.0353C67.0706 60.3391 60.3391 67.0706 52.0353 67.0706C43.7315 67.0706 37 60.3391 37 52.0353C37 43.7315 43.7315 37 52.0353 37C60.3391 37 67.0706 43.7315 67.0706 52.0353ZM43.3746 52.0353C43.3746 56.8185 47.2521 60.696 52.0353 60.696C56.8185 60.696 60.696 56.8185 60.696 52.0353C60.696 47.2521 56.8185 43.3746 52.0353 43.3746C47.2521 43.3746 43.3746 47.2521 43.3746 52.0353Z"
+                      fill="#AD00FF"
+                    />
+                  </g>
+                  <path
+                    d="M67.0706 52.0353C67.0706 60.3391 60.3391 67.0706 52.0353 67.0706C43.7315 67.0706 37 60.3391 37 52.0353C37 43.7315 43.7315 37 52.0353 37C60.3391 37 67.0706 43.7315 67.0706 52.0353ZM43.3746 52.0353C43.3746 56.8185 47.2521 60.696 52.0353 60.696C56.8185 60.696 60.696 56.8185 60.696 52.0353C60.696 47.2521 56.8185 43.3746 52.0353 43.3746C47.2521 43.3746 43.3746 47.2521 43.3746 52.0353Z"
+                    fill="#AD00FF"
+                  />
+                  <defs>
+                    <filter
+                      id="filter0_f_6_159"
+                      x="0.247059"
+                      y="0.247059"
+                      width="103.576"
+                      height="103.576"
+                      filterUnits="userSpaceOnUse"
+                      color-interpolation-filters="sRGB"
+                    >
+                      <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                      <feBlend
+                        mode="normal"
+                        in="SourceGraphic"
+                        in2="BackgroundImageFix"
+                        result="shape"
+                      />
+                      <feGaussianBlur
+                        stdDeviation="18.3765"
+                        result="effect1_foregroundBlur_6_159"
+                      />
+                    </filter>
+                  </defs>
+                </svg>
+              </div>
+              <div class="content_title">{{ introData[0]?.text }}</div>
+              <div
+                class="content_show"
+                style="
+                  background: linear-gradient(180deg, #ad00ff 0%, #ad00ff 100%);
+                  box-shadow: 0 0 30px #ad00ff;
+                "
               ></div>
             </router-link>
           </div>
@@ -128,12 +283,9 @@
         </button>
         <div class="hero-ft__box">
           <h3 class="hero-ft__title">
-            <b
-              >Bizning <br />
-              dasturlarimiz:</b
-            >
+            {{ introData[5]?.text }}
           </h3>
-          <div
+          <!-- <div
             class="content d-flex flex-column"
             v-for="item in forServise"
             :key="item"
@@ -151,13 +303,83 @@
                 :style="` background:linear-gradient(180deg, ${item?.color} 0%, ${item?.color} 100%);     box-shadow: 0 0  30px ${item?.color};`"
               ></div>
             </router-link>
+          </div> -->
+          <div class="content d-flex flex-column">
+            <router-link to="/home" class="content_link">
+              <span>
+                <i
+                  class="fa-solid fa-circle-dot fa-xl"
+                  style="color: #0085ff; box-shadow: 0px 0px 25px #0085ff"
+                ></i>
+              </span>
+              <h4 class="content_title">{{ introData[3]?.text }}</h4>
+              <div
+                class="content_show"
+                style="
+                  background: linear-gradient(180deg, #0085ff 0%, #0085ff 100%);
+                  box-shadow: 0 0 30px #0085ff;
+                "
+              ></div>
+            </router-link>
+          </div>
+          <div class="content d-flex flex-column">
+            <router-link to="/home" class="content_link">
+              <span>
+                <i
+                  class="fa-solid fa-circle-dot fa-xl"
+                  style="color: #ffb800; box-shadow: 0px 0px 25px #ffb800"
+                ></i>
+              </span>
+              <h4 class="content_title">{{ introData[2]?.text }}</h4>
+              <div
+                class="content_show"
+                style="
+                  background: linear-gradient(180deg, #ffb800 0%, #ffb800 100%);
+                  box-shadow: 0 0 30px #0085ff;
+                "
+              ></div>
+            </router-link>
+          </div>
+          <div class="content d-flex flex-column">
+            <router-link to="/home" class="content_link">
+              <span>
+                <i
+                  class="fa-solid fa-circle-dot fa-xl"
+                  style="color: #00ff47; box-shadow: 0px 0px 25px #00ff47"
+                ></i>
+              </span>
+              <h4 class="content_title">{{ introData[1]?.text }}</h4>
+              <div
+                class="content_show"
+                style="
+                  background: linear-gradient(180deg, #00ff47 0%, #00ff47 100%);
+                  box-shadow: 0 0 30px #00ff47;
+                "
+              ></div>
+            </router-link>
+          </div>
+          <div class="content d-flex flex-column">
+            <router-link to="/home" class="content_link">
+              <span>
+                <i
+                  class="fa-solid fa-circle-dot fa-xl"
+                  style="color: #ad00ff; box-shadow: 0px 0px 25px #ad00ff"
+                ></i>
+              </span>
+              <h4 class="content_title">{{ introData[0]?.text }}</h4>
+              <div
+                class="content_show"
+                style="
+                  background: linear-gradient(180deg, #ad00ff 0%, #ad00ff 100%);
+                  box-shadow: 0 0 30px #ad00ff;
+                "
+              ></div>
+            </router-link>
           </div>
           <router-link to="/">
             <div class="d-flex align-items-center">
               <div class="hero-ft__bottom">
-                boshqa <br />
-                dasturlarimiz <br />
-                haqida batafsil
+                {{ introData[4]?.text }}
               </div>
               <div class="intro_top_content_icon">
                 <svg
@@ -277,6 +499,7 @@
 
 <script>
 import sidebar from "../../components/sidebar.vue";
+import api from "../../server/api";
 export default {
   name: "Intro",
   data() {
@@ -335,9 +558,16 @@ export default {
           path: "/output",
         },
       ],
+      params: {
+        id: 7,
+      },
+      introData: [],
     };
   },
   components: { sidebar },
+  computed: {
+  
+  },
   methods: {
     showTitle() {
       setInterval(() => {
@@ -350,9 +580,16 @@ export default {
     openLeft() {
       document.querySelector(".home-left").classList.toggle("open-menu");
     },
+    // get function
+    gatIntro() {
+      api.category_one(this.params).then((res) => {
+        this.introData = res.data.category_items;
+      });
+    },
   },
   created() {
     this.showTitle();
+    this.gatIntro();
   },
 };
 </script>

@@ -385,6 +385,11 @@ export default {
   setup() {
     return {
       modules: [Autoplay],
+      // get paramas
+      bannerParams:{
+        id:8
+
+      }
     };
   },
   data() {
@@ -426,7 +431,7 @@ export default {
       }, 2000);
     },
     activeFunc() {
-      document.querySelector(".navbar-box").classList.toggle("show");
+		document.querySelector(".navbar-box").classList.toggle("show");
     },
     toggleBtn() {
       document.querySelector(".navbar-box").classList.toggle("show");
