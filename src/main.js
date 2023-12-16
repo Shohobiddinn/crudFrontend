@@ -8,10 +8,11 @@ import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min';
 import './assets/aos/aos.css';
 import baseurl from './server/baseurl';
 import util from './server/util';
+import store from './store';
 const app = createApp(App);
-
 app.config.globalProperties.$util = util;
 app.config.globalProperties.$baseurl = baseurl;
 app.use(router);
+app.use(store);
 app.mount('#app');
 Aos.init();
