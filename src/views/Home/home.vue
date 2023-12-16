@@ -75,7 +75,8 @@
 
     <div class="xozmag-box">
       <h3 class="xozmag-title">
-        {{ bannerData[0]?.text }}
+       <span>{{ bannerText1 }}</span> 
+        {{ bannerText2 }}
       </h3>
     </div>
 
@@ -124,7 +125,7 @@
           data-aos-anchor-placement="top-bottom"
           data-aos-duration="700"
         >
-          {{ resoultData[4]?.text }}
+        <span>{{ resoultText1 }}</span>{{ resoultText2 }}
         </div>
         <div class="resoult_bottom">
           <div class="content">
@@ -417,6 +418,24 @@ export default {
     SwiperSlide,
     VideoPlayer,
     contactBox,
+  },
+  computed: {
+    bannerText1() {
+      const arr = this.bannerData[0]?.text.split(" ");
+      return arr.slice(0 , 3).join(" ");
+    },
+    bannerText2(){
+      const arr = this.bannerData[0]?.text.split(" ");
+      return arr.slice(3).join(" ");
+    },
+    resoultText1(){
+      const arr = this.resoultData[4]?.text.split(" ");
+      return arr.slice(0,3).join(" ");
+    },
+    resoultText2(){
+      const arr = this.resoultData[4]?.text.split(" ");
+      return arr.slice(3).join(" ");
+    }
   },
   methods: {
     showTitle() {
