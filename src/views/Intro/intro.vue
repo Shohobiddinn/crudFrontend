@@ -413,30 +413,18 @@
           data-aos="fade-down"
           data-aos-duration="500"
         >
-          Biznesingizga <span>oson</span>
+        {{ bannerText1 }} <span>{{ bannerText2 }}</span> {{ bannerText3 }}
         </h3>
-        <h3
-          class="hero-mb__title title1 hero-mb__title--bottom"
-          data-aos="fade-up"
-          data-aos-duration="500"
-        >
-          yechim topamiz
-        </h3>
+  
       </div>
       <div class="hero-mb__box" v-else>
-        <h3
-          class="hero-mb__title title2"
-          data-aos="fade-down"
-          data-aos-duration="500"
-        >
-          Ishingizni
-        </h3>
+ 
         <h3
           class="hero-mb__title title2 hero-mb__title--bottom"
           data-aos="fade-up"
           data-aos-duration="500"
         >
-          osonlashtiramiz
+        {{ introData[6]?.text }}
         </h3>
       </div>
     </div>
