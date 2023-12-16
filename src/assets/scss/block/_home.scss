@@ -47,6 +47,8 @@
   opacity: 1;
   transition: transform 0.4s ease;
   color: #fff;
+  max-width: 750px;
+
   @include media(500px) {
     font-size: 25px;
   }

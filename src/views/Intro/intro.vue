@@ -9,8 +9,9 @@
             data-aos="fade-down"
             data-aos-duration="500"
           >
-            {{ introData[7]?.text }}
-          
+            <!-- {{ introData[7]?.text }}
+             -->
+            {{ bannerText1 }} <span>{{ bannerText2 }}</span> {{ bannerText3 }}
           </h3>
         </div>
         <div class="hero__box" v-else>
@@ -566,7 +567,19 @@ export default {
   },
   components: { sidebar },
   computed: {
-  
+    bannerText1() {
+      const arr = this.introData[7]?.text.split(" ");
+      return arr.slice(0, 1).join(" ");
+    },
+    bannerText2() {
+      const arr = this.introData[7]?.text.split(" ");
+      return arr.slice(1,2).join(" ");
+    },
+    bannerText3() {
+      const arr = this.introData[7]?.text.split(" ");
+      return arr.slice(2).join(" ");
+    },
+
   },
   methods: {
     showTitle() {

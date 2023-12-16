@@ -75,7 +75,7 @@
 
     <div class="xozmag-box">
       <h3 class="xozmag-title">
-       <span>{{ bannerText1 }}</span> 
+        <span>{{ bannerText1 }}</span>
         {{ bannerText2 }}
       </h3>
     </div>
@@ -125,7 +125,10 @@
           data-aos-anchor-placement="top-bottom"
           data-aos-duration="700"
         >
-        <span>{{ resoultText1 }}</span>{{ resoultText2 }}
+          {{ resoultText1 }}
+          <span>
+            {{ resoultText2 }}
+          </span>
         </div>
         <div class="resoult_bottom">
           <div class="content">
@@ -422,20 +425,20 @@ export default {
   computed: {
     bannerText1() {
       const arr = this.bannerData[0]?.text.split(" ");
-      return arr.slice(0 , 3).join(" ");
+      return arr.slice(0, 3).join(" ");
     },
-    bannerText2(){
+    bannerText2() {
       const arr = this.bannerData[0]?.text.split(" ");
       return arr.slice(3).join(" ");
     },
-    resoultText1(){
+    resoultText1() {
       const arr = this.resoultData[4]?.text.split(" ");
-      return arr.slice(0,3).join(" ");
+      return arr.slice(0, 2).join(" ");
     },
-    resoultText2(){
+    resoultText2() {
       const arr = this.resoultData[4]?.text.split(" ");
-      return arr.slice(3).join(" ");
-    }
+      return arr.slice(2).join(" ");
+    },
   },
   methods: {
     showTitle() {

@@ -586,15 +586,35 @@ img {
     border-bottom: 1px solid rgba(255, 255, 255, 0.7450980392);
   }
 }
-.hero {
-  margin-top: 50px;
+.navigate {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 0;
+  z-index: 2;
+}
+@media (max-width: 1135px) {
+  .navigate {
+    display: none;
+  }
+}
+.navigate .active {
+  color: #900;
+}
+.navigate .navigate_img {
+  width: 322px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.heros {
   position: relative;
   display: block;
-  height: 250px;
+  margin-bottom: 180px;
 }
 
 .hero__box {
-  width: 100%;
+  width: 90%;
   overflow: hidden;
   margin: 0 auto;
   display: flex;
@@ -602,12 +622,10 @@ img {
   align-items: center;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 150px;
 }
 
 .hero__title {
-  margin: 0;
-  top: 0;
-  bottom: 0;
   font-size: 51.534px;
   font-weight: 500;
   line-height: 70.859px;
@@ -616,6 +634,11 @@ img {
   transition: transform 0.4s ease;
   color: #fff;
   max-width: 750px;
+}
+@media (max-width: 500px) {
+  .hero__title {
+    font-size: 25px;
+  }
 }
 .hero__title span {
   color: #900;
@@ -648,7 +671,6 @@ img {
   font-style: normal;
   font-weight: 500;
   line-height: 70.859px;
-  /* 137.5% */
   color: #fff;
   text-transform: uppercase;
 }
@@ -674,7 +696,7 @@ img {
   gap: 35px;
   align-items: center;
 }
-@media (max-width: 980px) {
+@media (max-width: 1356px) {
   .banner .container-c {
     flex-direction: column;
     height: none;
@@ -688,7 +710,7 @@ img {
   flex-direction: column;
   gap: 30px;
 }
-@media (max-width: 980px) {
+@media (max-width: 1356px) {
   .banner .container-c .item {
     flex-direction: row;
     width: 100%;
@@ -707,13 +729,13 @@ img {
      object-fit: cover;
   border-radius: 30px;
 }
-@media (max-width: 1170px) {
+@media (max-width: 1590px) {
   .banner .container-c .item img {
     width: 250px;
     height: 200px;
   }
 }
-@media (max-width: 980px) {
+@media (max-width: 1356px) {
   .banner .container-c .item img {
     width: calc(50% - 15px);
     height: 350px;
@@ -733,7 +755,7 @@ img {
 .banner .container-c .item.item1 {
   width: 50%;
 }
-@media (max-width: 980px) {
+@media (max-width: 1356px) {
   .banner .container-c .item.item1 {
     width: 100%;
   }
@@ -745,13 +767,13 @@ img {
   -o-object-fit: cover;
      object-fit: cover;
 }
-@media (max-width: 1170px) {
+@media (max-width: 1590px) {
   .banner .container-c .item.item1 img {
     width: 500px;
     height: 450px;
   }
 }
-@media (max-width: 980px) {
+@media (max-width: 1356px) {
   .banner .container-c .item.item1 img {
     width: 100%;
     height: 600px;
@@ -795,15 +817,16 @@ img {
   display: flex;
   gap: 57px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1590px) {
   .resoult .container-c .resoult_bottom {
     flex-direction: column;
   }
 }
 .resoult .container-c .resoult_bottom .content {
   width: 50%;
+  background: none;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1590px) {
   .resoult .container-c .resoult_bottom .content {
     width: 100%;
     margin-bottom: 60px;
@@ -852,7 +875,7 @@ img {
   height: 1px;
   background-color: #fff;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1590px) {
   .resoult .container-c .resoult_bottom .content_resoult::after, .resoult .container-c .resoult_bottom .content_resoult::before {
     display: none;
   }
@@ -865,7 +888,7 @@ img {
   bottom: -1px;
   right: -70px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1590px) {
   .resoult .container-c .resoult_bottom .content_resoult {
     border-radius: 30px;
     border: 1px solid #FFF;
@@ -919,7 +942,7 @@ img {
   position: relative;
   width: 50%;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1590px) {
   .resoult .container-c .resoult_bottom .content_image {
     width: 100%;
   }
@@ -936,6 +959,9 @@ img {
 }
 .resoult .container-c .resoult_bottom .content_image .images {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .resoult .container-c .resoult_bottom .content_image .images img {
   width: 600px;
@@ -945,7 +971,7 @@ img {
      object-fit: cover;
   border-radius: 30px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1590px) {
   .resoult .container-c .resoult_bottom .content_image .images img {
     width: 90%;
     height: 500px;
