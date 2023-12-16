@@ -3,9 +3,9 @@
     <nav class="navigate">
       <ul class="navigate_list">
         <li class="navigate_item">
-          <RouterLink @click="activeFunc()" class="navigate_link" to="/about"
-            >{{ navbarData[0]?.text }}</RouterLink
-          >
+          <RouterLink class="navigate_link" to="/about">{{
+            navbarData[0]?.text
+          }}</RouterLink>
         </li>
         <li class="navigate_item"><b>.</b></li>
 
@@ -20,20 +20,22 @@
         <li class="navigate_item"><b>.</b></li>
 
         <li class="navigate_item">
-          <RouterLink @click="activeFunc()" to="/">
+          <RouterLink to="/">
             <img class="navigate_img" src="../assets/images/Crud.svg" alt="" />
           </RouterLink>
         </li>
 
         <li class="navigate_item">
-          <RouterLink @click="activeFunc()" class="navigate_link" to="/faq"
-            >{{ navbarData[2]?.text }}</RouterLink
-          >
+          <RouterLink class="navigate_link" to="/faq">{{
+            navbarData[2]?.text
+          }}</RouterLink>
         </li>
         <li class="navigate_item"><b>.</b></li>
 
         <li class="navigate_item">
-          <RouterLink @click="activeFunc()" class="navigate_link" to="/videos"
+          <RouterLink
+            class="navigate_link"
+            to="/videos"
             >{{ navbarData[3]?.text }}</RouterLink
           >
         </li>
@@ -115,7 +117,7 @@ export default {
   data() {
     return {
       isNavbarOpen: false,
-	  params: {
+      params: {
         id: 5,
       },
       // responsive
@@ -162,11 +164,8 @@ export default {
         .category_one(this.params)
         .then((res) => {
           this.navbarData = res.data.category_items;
-		  console.log(res);
         })
-        .catch((err) => {
-			console.log(err);
-		});
+        .catch((err) => {});
     },
   },
   created() {

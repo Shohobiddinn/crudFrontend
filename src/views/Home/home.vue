@@ -425,19 +425,19 @@ export default {
   computed: {
     bannerText1() {
       const arr = this.bannerData[0]?.text.split(" ");
-      return arr.slice(0, 3).join(" ");
+      return arr?.slice(0, 3).join(" ");
     },
     bannerText2() {
       const arr = this.bannerData[0]?.text.split(" ");
-      return arr.slice(3).join(" ");
+      return arr?.slice(3).join(" ");
     },
     resoultText1() {
       const arr = this.resoultData[4]?.text.split(" ");
-      return arr.slice(0, 2).join(" ");
+      return arr?.slice(0, 2).join(" ");
     },
     resoultText2() {
       const arr = this.resoultData[4]?.text.split(" ");
-      return arr.slice(2).join(" ");
+      return arr?.slice(2).join(" ");
     },
   },
   methods: {

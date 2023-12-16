@@ -535,28 +535,6 @@ export default {
           snapAlign: "start",
         },
       },
-      forServise: [
-        {
-          color: "#0085FF",
-          title: "Savdo hozmaglar uchun",
-          path: "/xozmag",
-        },
-        {
-          color: "#FFB800",
-          title: "Qurilish davlat obyektlari uchun",
-          path: "/structure",
-        },
-        {
-          color: "#00FF47",
-          title: "Ishlab chiqarish",
-          path: "/manufacture",
-        },
-        {
-          color: "#AD00FF",
-          title: "Qurilish mahsulotlarini ishlab chiqarish",
-          path: "/output",
-        },
-      ],
       params: {
         id: 7,
       },
@@ -567,17 +545,16 @@ export default {
   computed: {
     bannerText1() {
       const arr = this.introData[7]?.text.split(" ");
-      return arr.slice(0, 1).join(" ");
+      return arr?.slice(0, 1).join(" ");
     },
     bannerText2() {
       const arr = this.introData[7]?.text.split(" ");
-      return arr.slice(1,2).join(" ");
+      return arr?.slice(1, 2).join(" ");
     },
     bannerText3() {
       const arr = this.introData[7]?.text.split(" ");
-      return arr.slice(2).join(" ");
+      return arr?.slice(2).join(" ");
     },
-
   },
   methods: {
     showTitle() {

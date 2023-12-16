@@ -9,7 +9,7 @@ export default async function server(
 	data = null
 ) {
 	await store.dispatch('setLoading', true);
-	let token = store.state.user?.access_token;
+	let token = null;
 	let result, error;
 	await axios
 		.request({
