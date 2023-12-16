@@ -3,14 +3,12 @@
     <nav class="navigate">
       <ul class="navigate_list">
         <li class="navigate_item">
-          <a href="#dastur" class="navigate_link">dastur haqida</a>
+          <a href="#dastur" class="navigate_link">{{ bannerData[4]?.text }}</a>
         </li>
         <li class="navigate_item"><b>.</b></li>
 
         <li class="navigate_item">
-          <a href="#dastur" @click="activeFunc()" class="navigate_link"
-            >Foydali jihat</a
-          >
+          <a href="#dastur" class="navigate_link">{{ bannerData[3]?.text }}</a>
         </li>
         <li class="navigate_item"><b>.</b></li>
 
@@ -25,12 +23,14 @@
         </li>
 
         <li class="navigate_item">
-          <a href="#yonalish" class="navigate_link">yo'nalishlari</a>
+          <a href="#yonalish" class="navigate_link">{{
+            bannerData[2]?.text
+          }}</a>
         </li>
         <li class="navigate_item"><b>.</b></li>
 
         <li class="navigate_item">
-          <a href="#video" class="navigate_link">Video qo'llanmalar</a>
+          <a href="#video" class="navigate_link">{{ bannerData[1]?.text }}</a>
         </li>
       </ul>
     </nav>
@@ -47,26 +47,26 @@
         </div>
         <ul class="navigate_list">
           <li class="navigate_item">
-            <a href="#dastur" @click="activeFunc()" class="navigate_link"
-              >dastur haqida</a
-            >
+            <a href="#dastur" @click="activeFunc()" class="navigate_link">{{
+              bannerData[4]?.text
+            }}</a>
           </li>
 
           <li class="navigate_item">
-            <a href="#dastur" @click="activeFunc()" class="navigate_link"
-              >foydali jihat</a
-            >
+            <a href="#dastur" @click="activeFunc()" class="navigate_link">{{
+              bannerData[3]?.text
+            }}</a>
           </li>
 
           <li class="navigate_item">
-            <a href="#yonalish" @click="activeFunc()" class="navigate_link"
-              >yo'nalishlari</a
-            >
+            <a href="#yonalish" @click="activeFunc()" class="navigate_link">{{
+              bannerData[2]?.text
+            }}</a>
           </li>
 
           <li class="navigate_item">
             <a href="#video" @click="activeFunc()" class="navigate_link">
-              Video qo'llanmalar
+              {{ bannerData[1]?.text }}
             </a>
           </li>
         </ul>
@@ -75,7 +75,7 @@
 
     <div class="xozmag-box">
       <h3 class="xozmag-title">
-        <span>Qurilish davlat obyektlari</span> uchun dastur
+        {{ bannerData[0]?.text }}
       </h3>
     </div>
 
@@ -124,7 +124,7 @@
           data-aos-anchor-placement="top-bottom"
           data-aos-duration="700"
         >
-          Savdo hozmaglar <span>uchun</span>
+          {{ resoultData[4]?.text }}
         </div>
         <div class="resoult_bottom">
           <div class="content">
@@ -134,15 +134,7 @@
               data-aos-anchor-placement="top-bottom"
               data-aos-duration="700"
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
+              {{ resoultData[3]?.text }}
             </div>
             <div
               class="content_resoult"
@@ -166,7 +158,7 @@
                   </svg>
                   <div class="item_icon_title">81%</div>
                 </div>
-                <div class="item_title">Ishingizni tezlashadi</div>
+                <div class="item_title">{{ resoultData[2]?.text }}</div>
               </div>
               <div class="item">
                 <div class="item_icon">
@@ -184,7 +176,7 @@
                   </svg>
                   <div class="item_icon_title">78%</div>
                 </div>
-                <div class="item_title">Ishingizni tezlashadi</div>
+                <div class="item_title">{{ resoultData[1]?.text }}</div>
               </div>
               <div class="item">
                 <div class="item_icon">
@@ -202,7 +194,7 @@
                   </svg>
                   <div class="item_icon_title">63%</div>
                 </div>
-                <div class="item_title">Ishingizni tezlashadi</div>
+                <div class="item_title">{{ resoultData[0]?.text }}</div>
               </div>
             </div>
           </div>
@@ -247,7 +239,7 @@
               />
             </svg>
           </div>
-          <div class="users_content_title">foydalanuvchilar soni</div>
+          <div class="users_content_title">{{ userData[1]?.text }}</div>
         </div>
         <div class="users_bottom">
           <div
@@ -265,16 +257,7 @@
             data-aos-duration="700"
           >
             <div class="content_title">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsumhas been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              {{ userData[0]?.text }}
             </div>
           </div>
         </div>
@@ -302,7 +285,7 @@
               />
             </svg>
           </div>
-          <div class="current_users_title">Ayni damdagi foydalanuvchilar</div>
+          <div class="current_users_title">{{ swiperVideoData[1]?.text }}</div>
         </div>
         <swiper
           class="mySwiper"
@@ -337,9 +320,6 @@
             },
           }"
         >
-          bo'ldimi bo'ldi rahmad hozir shunda 11 qerakmikan 100ming pulimi
-          bering qancha 1 yonida 2 ta nol men dasturlash kampaniya sotvolaman
-          demadimu
           <swiper-slide v-for="item in 8" :key="item">
             <img src="https://picsum.photos/seed/picsum/200/300" alt="" />
           </swiper-slide>
@@ -357,7 +337,7 @@
         <div class="manual_content">
           <div class="title-box">
             <img src="/src/assets/images/slash.svg" alt="" />
-            <h3 class="contact_title">Ko'p beriladigan savollar</h3>
+            <h3 class="contact_title">K{{ swiperVideoData[0]?.text }}</h3>
           </div>
         </div>
         <div class="manual_video">
@@ -381,15 +361,11 @@ import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { VideoPlayer } from "@videojs-player/vue";
 import "video.js/dist/video-js.css";
+import api from "../../server/api";
 export default {
   setup() {
     return {
       modules: [Autoplay],
-      // get paramas
-      bannerParams:{
-        id:8
-
-      }
     };
   },
   data() {
@@ -416,6 +392,24 @@ export default {
           },
         ],
       },
+      // get paramas
+      bannerParams: {
+        id: 8,
+      },
+      resoultParams: {
+        id: 9,
+      },
+      userParams: {
+        id: 10,
+      },
+      swiperVideoParams: {
+        id: 11,
+      },
+      // response data
+      bannerData: [],
+      resoultData: [],
+      userData: [],
+      swiperVideoData: [],
     };
   },
   components: {
@@ -431,14 +425,38 @@ export default {
       }, 2000);
     },
     activeFunc() {
-		document.querySelector(".navbar-box").classList.toggle("show");
+      document.querySelector(".navbar-box").classList.toggle("show");
     },
     toggleBtn() {
       document.querySelector(".navbar-box").classList.toggle("show");
     },
+    getBanner() {
+      api.category_one(this.bannerParams).then((res) => {
+        this.bannerData = res.data.category_items;
+      });
+    },
+    getResoult() {
+      api.category_one(this.resoultParams).then((res) => {
+        this.resoultData = res.data.category_items;
+      });
+    },
+    getUser() {
+      api.category_one(this.userParams).then((res) => {
+        this.userData = res.data.category_items;
+      });
+    },
+    getSwiperVideo() {
+      api.category_one(this.swiperVideoParams).then((res) => {
+        this.swiperVideoData = res.data.category_items;
+      });
+    },
   },
   created() {
     this.showTitle();
+    this.getBanner();
+    this.getResoult();
+    this.getUser();
+    this.getSwiperVideo();
   },
 };
 </script>
