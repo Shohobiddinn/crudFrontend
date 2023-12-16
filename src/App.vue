@@ -1,5 +1,4 @@
 <script>
-import sidebar from "/src/components/sidebar.vue";
 import Loading from "./components/Animation/Loading.vue";
 export default {
   name: "App",
@@ -14,8 +13,7 @@ export default {
 
 <template>
   <div class="bg-img"></div>
-  <loading />
-  <!-- <sidebar /> -->
+  <Loading />
   <RouterView />
 </template>
 

@@ -341,7 +341,7 @@
         <div class="manual_content">
           <div class="title-box">
             <img src="/src/assets/images/slash.svg" alt="" />
-            <h3 class="contact_title">K{{ swiperVideoData[0]?.text }}</h3>
+            <h3 class="contact_title">{{ swiperVideoData[0]?.text }}</h3>
           </div>
         </div>
         <div class="manual_video">
