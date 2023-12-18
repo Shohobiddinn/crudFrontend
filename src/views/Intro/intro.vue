@@ -284,25 +284,6 @@
           <h3 class="hero-ft__title">
             {{ introData[5]?.text }}
           </h3>
-          <!-- <div
-            class="content d-flex flex-column"
-            v-for="item in forServise"
-            :key="item"
-          >
-            <router-link :to="item.path" class="content_link">
-              <span>
-                <i
-                  class="fa-solid fa-circle-dot fa-xl"
-                  :style="` color:${item.color} ;box-shadow: 0px 0px 25px ${item.color};`"
-                ></i>
-              </span>
-              <h4 class="content_title">{{ item?.title }}</h4>
-              <div
-                class="content_show"
-                :style="` background:linear-gradient(180deg, ${item?.color} 0%, ${item?.color} 100%);     box-shadow: 0 0  30px ${item?.color};`"
-              ></div>
-            </router-link>
-          </div> -->
           <div class="content d-flex flex-column">
             <router-link to="/home" class="content_link">
               <span>
