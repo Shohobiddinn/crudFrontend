@@ -8,7 +8,10 @@
       </div>
       <div class="about_box">
         <VideoPlayer
-          :options="videoOptions"
+          src="/src/assets/images/video.mp4"
+          :controls="true"
+          :fullscreen="true"
+          :responsive="true"
           style="width: 100%; background-color: inherit; object-fit: cover"
         />
       </div>
@@ -23,12 +26,13 @@
           :breakpoints="breakPoints"
         >
           <slide v-for="item in fileData" :key="item.id">
-            <!-- <VideoPlayer :options="videoOptions" style="width: 100%">
-              <source src="../../assets/images/video.mp4" />
-            </VideoPlayer> -->
-            <video class="video-js" preload="auto">
-              <source src="../../assets/images/video.mp4" type="video/mp4" />
-            </video>
+            <VideoPlayer
+              src="/src/assets/images/video.mp4"
+              :controls="true"
+              :fullscreen="true"
+              :responsive="true"
+              style="width: 100%; background-color: inherit; object-fit: cover"
+            />
           </slide>
         </carousel>
       </div>
@@ -95,6 +99,11 @@ export default {
         responsive: true,
         autoplay: false,
         controls: true,
+
+        sources: {
+          src: "/src/assets/images/video.mp4",
+          type: "video/mp4",
+        },
       },
       breakPoints: {
         320: {
