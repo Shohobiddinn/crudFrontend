@@ -398,16 +398,16 @@ export default {
       },
       // get paramas
       bannerParams: {
-        id: 8,
+        id: 1,
       },
       resoultParams: {
-        id: 9,
+        id: 2,
       },
       userParams: {
-        id: 10,
+        id: 3,
       },
       swiperVideoParams: {
-        id: 11,
+        id: 4,
       },
       // response data
       bannerData: [],

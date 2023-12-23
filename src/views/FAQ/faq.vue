@@ -66,7 +66,7 @@ export default {
   data() {
     return {
       params: {
-        id: 14,
+        id: 8,
       },
       faqData: [],
     };

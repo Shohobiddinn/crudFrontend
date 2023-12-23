@@ -118,7 +118,7 @@ export default {
     return {
       isNavbarOpen: false,
       params: {
-        id: 5,
+        id: 6,
       },
       // responsive
       navbarData: [],
