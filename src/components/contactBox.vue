@@ -15,15 +15,15 @@
           </div>
           <div class="social_box">
             <p class="social_title">{{ connetcData[4]?.text }}</p>
-            <a class="social_phone" :href="connetcData[3]?.text"
-              >{{ connetcData[3]?.text }}</a
-            >
+            <a class="social_phone" :href="connetcData[3]?.text">{{
+              connetcData[3]?.text
+            }}</a>
           </div>
           <div class="social_box">
             <p class="social_title">{{ connetcData[2]?.text }}</p>
-            <a class="social_phone" :href="connetcData[1]?.text "
-              >{{ connetcData[1]?.text }}</a
-            >
+            <a class="social_phone" :href="connetcData[1]?.text">{{
+              connetcData[1]?.text
+            }}</a>
           </div>
         </div>
         <div
@@ -50,7 +50,7 @@
         <div class="contact_location col-12 col-xl-5">
           <p class="social_title">{{ connetcData[0]?.text }}</p>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d189.93708993720526!2d71.786022984421!3d40.38683802209946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38bb836751654afb%3A0x616156310421e28a!2z0JjQvdGC0LXRgNC90LXRgi3QutCw0YTQtSBTYXl0ZXg!5e0!3m2!1sru!2s!4v1699867545553!5m2!1sru!2s"
+            :src="connectMap[0]?.text"
             width="600"
             height="230"
             allowfullscreen="true"
@@ -95,7 +95,11 @@ export default {
       params: {
         id: 5,
       },
+      mapParams: {
+        id: 11,
+      },
       connetcData: [],
+      connectMap:[]
     };
   },
   methods: {
@@ -123,10 +127,16 @@ export default {
         this.connetcData = res.data.category_items;
       });
     },
+    getMap() {
+      api.category_one(this.mapParams).then((res) => {
+        this.connectMap = res.data.category_items;
+      });
+    },
   },
-  created(){
-	this.getConnect();
-  }
+  created() {
+    this.getConnect();
+    this.getMap();
+  },
 };
 </script>
 <style></style>
