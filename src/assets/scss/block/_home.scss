@@ -572,15 +572,13 @@
       }
     }
 
-    img {
-      min-width: 90%;
-      max-width: fit-content;
-      height: 318px;
-      border-radius: 36px;
-      object-fit: cover;
-
-      @include media(500px) {
-        height: 250px;
+    .current_users_swiper {
+      &_slide {
+        img {
+          width: 100%;
+          max-width: 100%;
+          object-fit: cover;
+        }
       }
     }
   }
@@ -624,6 +622,7 @@
       @include media(500px) {
         margin-bottom: 90px;
       }
+
     }
   }
 }

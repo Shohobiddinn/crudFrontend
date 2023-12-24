@@ -21,7 +21,7 @@
 
         <li class="navigate_item">
           <RouterLink to="/">
-            <img class="navigate_img" src="../assets/images/Crud.svg" alt="" />
+            <img class="navigate_img" :src="url + navbarFile[0]?.file" alt="photo" />
           </RouterLink>
         </li>
 
@@ -33,11 +33,9 @@
         <li class="navigate_item"><b>.</b></li>
 
         <li class="navigate_item">
-          <RouterLink
-            class="navigate_link"
-            to="/videos"
-            >{{ navbarData[3]?.text }}</RouterLink
-          >
+          <RouterLink class="navigate_link" to="/videos">{{
+            navbarData[3]?.text
+          }}</RouterLink>
         </li>
       </ul>
     </nav>
@@ -46,7 +44,7 @@
         <RouterLink @click="activeFunc()" to="/">
           <img
             class="home-sidebar__img"
-            src="/src/assets/images/Crud.svg"
+            :src="url + navbarFile[0]?.file"
             alt=""
             width="169"
             height="35"
@@ -64,7 +62,7 @@
               <RouterLink @click="activeFunc()" to="/">
                 <img
                   class="home-sidebar__img"
-                  src="/src/assets/images/Crud.svg"
+                  :src="url + navbarFile[0]?.file"
                   alt=""
                 />
               </RouterLink>
@@ -112,16 +110,22 @@
 </template>
 <script>
 import api from "../server/api";
+import baseurl from "../server/baseurl";
 export default {
   name: "sidebar",
   data() {
     return {
+      url :baseurl,
       isNavbarOpen: false,
       params: {
         id: 6,
       },
+      fileData: {
+        source_id: 6,
+      },
       // responsive
       navbarData: [],
+      navbarFile:[],
     };
   },
   methods: {
@@ -167,9 +171,15 @@ export default {
         })
         .catch((err) => {});
     },
+    getNavbarFile(){
+      api.file_files_source(this.fileData).then((res)=>{
+        this.navbarFile = res.data
+      })
+    },
   },
   created() {
     this.getNavber();
+    this.getNavbarFile();
   },
 };
 </script>

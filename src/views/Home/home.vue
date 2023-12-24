@@ -86,32 +86,32 @@
           <img
             data-aos="fade-up"
             data-aos-duration="600"
-            src="../../assets/images/Rectangle 14.png"
+            :src="url + bannerFileData[4]?.file"
             alt="photo"
           />
 
           <img
             data-aos="fade-up"
             data-aos-duration="700"
-            src="../../assets/images/Rectangle 14.png"
+            :src="url + bannerFileData[3]?.file"
             alt="photo"
           />
         </div>
         <div class="item item1" data-aos="fade-down" data-aos-duration="700">
-          <img src="../../assets/images/Rectangle 15.png" alt="photo" />
+          <img :src="url + bannerFileData[2]?.file" alt="photo" />
         </div>
         <div class="item">
           <img
             data-aos="fade-up"
             data-aos-duration="600"
-            src="../../assets/images/Rectangle 14.png"
+            :src="url + bannerFileData[1]?.file"
             alt="photo"
           />
 
           <img
             data-aos="fade-up"
             data-aos-duration="700"
-            src="../../assets/images/Rectangle 14.png"
+            :src="url + bannerFileData[0]?.file"
             alt="photo"
           />
         </div>
@@ -209,7 +209,7 @@
           >
             <router-link to="/">
               <div class="images">
-                <img src="../../assets/images/Rectangle 41.png" alt="" />
+                <img :src="url + resoultFileData[0]?.file" alt="photo" />
                 <div class="icon_image">
                   <div class="icon"></div>
                   <div class="icon"></div>
@@ -252,7 +252,7 @@
             data-aos-anchor-placement="top-bottom"
             data-aos-duration="700"
           >
-            <img src="../../assets/images/Vector 2.png" alt="" />
+            <img :src="url + userFileData[0]?.file" alt="photo" />
           </div>
           <div
             class="content"
@@ -292,7 +292,7 @@
           <div class="current_users_title">{{ swiperVideoData[1]?.text }}</div>
         </div>
         <swiper
-          class="mySwiper"
+          class="current_users_swiper"
           :slidesPerView="4"
           :spaceBetween="30"
           :cssMode="true"
@@ -324,8 +324,8 @@
             },
           }"
         >
-          <swiper-slide v-for="item in 8" :key="item">
-            <img src="https://picsum.photos/seed/picsum/200/300" alt="" />
+          <swiper-slide class="current_users_swiper_slide" v-for="item in currentUserData" :key="item">
+            <img :src="url + item?.file" alt="photo" />
           </swiper-slide>
         </swiper>
       </div>
@@ -346,9 +346,12 @@
         </div>
         <div class="manual_video">
           <VideoPlayer
-            :options="videoOptions"
-            style="width: 95%; background-color: inherit; object-fit: cover"
-          />
+          :src="url + manualFileData[0]?.file"
+          :controls="true"
+          :fullscreen="true"
+          :responsive="true"
+          style="width: 100%; background-color: inherit; object-fit: cover"
+        />
         </div>
       </div>
     </div>
@@ -366,6 +369,7 @@ import { Autoplay } from "swiper/modules";
 import { VideoPlayer } from "@videojs-player/vue";
 import "video.js/dist/video-js.css";
 import api from "../../server/api";
+import baseurl from "../../server/baseurl";
 export default {
   setup() {
     return {
@@ -374,6 +378,7 @@ export default {
   },
   data() {
     return {
+      url: baseurl,
       show: true,
       text: [
         {
@@ -409,10 +414,30 @@ export default {
       swiperVideoParams: {
         id: 4,
       },
+      bannerFileParams: {
+        source_id: 2,
+      },
+      resoultFileParams: {
+        source_id: 3,
+      },
+      userFileParams: {
+        source_id: 4,
+      },
+      currentUserFileParams: {
+        source_id: 7,
+      },
+      manualParams: {
+        source_id: 8,
+      },
       // response data
       bannerData: [],
+      bannerFileData: [],
       resoultData: [],
+      resoultFileData: [],
       userData: [],
+      userFileData: [],
+      currentUserData: [],
+      manualFileData: [],
       swiperVideoData: [],
     };
   },
@@ -452,6 +477,7 @@ export default {
     toggleBtn() {
       document.querySelector(".navbar-box").classList.toggle("show");
     },
+    // get function
     getBanner() {
       api.category_one(this.bannerParams).then((res) => {
         this.bannerData = res.data.category_items;
@@ -472,6 +498,32 @@ export default {
         this.swiperVideoData = res.data.category_items;
       });
     },
+    getBannerFile() {
+      api.file_files_source(this.bannerFileParams).then((res) => {
+        this.bannerFileData = res.data;
+      });
+    },
+    getResoultFile() {
+      api.file_files_source(this.resoultFileParams).then((res) => {
+        this.resoultFileData = res.data;
+      });
+    },
+    getUserFile() {
+      api.file_files_source(this.userFileParams).then((res) => {
+        this.userFileData = res.data;
+      });
+    },
+    getCurrentUserFile() {
+      api.file_files_source(this.currentUserFileParams).then((res) => {
+        this.currentUserData = res.data;
+      });
+    },
+    getManualFile() {
+      api.file_files_source(this.manualParams).then((res) => {
+        this.manualFileData = res.data;
+      });
+    },
+
   },
   created() {
     this.showTitle();
@@ -479,6 +531,11 @@ export default {
     this.getResoult();
     this.getUser();
     this.getSwiperVideo();
+    this.getBannerFile();
+    this.getResoultFile();
+    this.getUserFile();
+    this.getCurrentUserFile();
+    this.getManualFile();
   },
 };
 </script>

@@ -4,11 +4,11 @@
       <sidebar />
       <div class="title-box">
         <img src="/src/assets/images/slash.svg" alt="" />
-        <h3 class="contact_title">Biz haqimizda</h3>
+        <h3 class="contact_title">{{ aboutTitleData[2]?.text }}</h3>
       </div>
       <div class="about_box">
         <VideoPlayer
-          src="/src/assets/images/video.mp4"
+          :src="url + aboutFileData[0]?.file"
           :controls="true"
           :fullscreen="true"
           :responsive="true"
@@ -17,7 +17,7 @@
       </div>
       <div class="title-box">
         <img src="/src/assets/images/slash.svg" alt="" />
-        <h3 class="contact_title">Mijozlarimiz fikrlari</h3>
+        <h3 class="contact_title">{{ aboutTitleData[1]?.text }}</h3>
       </div>
       <div class="video_carusel">
         <carousel
@@ -25,9 +25,9 @@
           :wrap-around="true"
           :breakpoints="breakPoints"
         >
-          <slide v-for="item in fileData" :key="item.id">
+          <slide v-for="item in aboutFileSwiperData" :key="item.id">
             <VideoPlayer
-              src="/src/assets/images/video.mp4"
+              :src="url + item?.file"
               :controls="true"
               :fullscreen="true"
               :responsive="true"
@@ -38,7 +38,7 @@
       </div>
       <div class="title-box">
         <img src="/src/assets/images/slash.svg" alt="" />
-        <h3 class="contact_title">Bizning mijozlarimiz</h3>
+        <h3 class="contact_title">{{ aboutTitleData[0]?.text }}</h3>
       </div>
       <div class="client-box">
         <carousel
@@ -47,9 +47,9 @@
           :wrap-around="true"
           :breakpoints="breakPoints"
         >
-          <slide v-for="slide in images" :key="slide">
+          <slide v-for="item in swiperImages1" :key="item.id">
             <a class="client_link" href="">
-              <img class="client__img" :src="slide" alt="" />
+              <img class="client__img" :src="url + item?.file" alt="photo" />
             </a>
           </slide>
         </carousel>
@@ -59,9 +59,9 @@
           :wrap-around="true"
           :breakpoints="breakPoints"
         >
-          <slide v-for="slide in images" :key="slide">
+          <slide v-for="item in swiperImages2" :key="item.id">
             <a class="client_link" href="">
-              <img class="client__img" :src="slide" alt="" />
+              <img class="client__img" :src="url + item?.file" alt="photo" />
             </a>
           </slide>
         </carousel>
@@ -72,17 +72,13 @@
 </template>
 <script>
 import sidebar from "/src/components/sidebar.vue";
-import parvoz from "../../assets/images/parvoz.png";
-import ideal from "../../assets/images/ideal.png";
-import ecoBonu from "../../assets/images/eco-bonu.png";
-import dehqon from "../../assets/images/dehqon-uz.png";
-import effectiveEngineering from "../../assets/images/effective-engineering.png";
 import contactBox from "../../components/contactBox.vue";
 import { VideoPlayer } from "@videojs-player/vue";
 import "video.js/dist/video-js.css";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide } from "vue3-carousel";
 import api from "../../server/api";
+import baseurl from "../../server/baseurl";
 export default {
   components: {
     VideoPlayer,
@@ -93,18 +89,7 @@ export default {
   },
   data() {
     return {
-      images: [parvoz, ideal, dehqon, ecoBonu, effectiveEngineering],
-      videoOptions: {
-        fullscreen: true,
-        responsive: true,
-        autoplay: false,
-        controls: true,
-
-        sources: {
-          src: "/src/assets/images/video.mp4",
-          type: "video/mp4",
-        },
-      },
+      url: baseurl,
       breakPoints: {
         280: {
           itemsToShow: 1,
@@ -128,26 +113,73 @@ export default {
           snapAlign: "start",
         },
       },
-      fileParams: {
-        source_id: 1,
+      // get params
+      aboutFileParams: {
+        source_id: 11,
       },
-      fileData: [],
+      aboutFileSwiperParams: {
+        source_id: 12,
+      },
+      about_swiper_images1_params: {
+        source_id: 13,
+      },
+      about_swiper_images2_params: {
+        source_id: 14,
+      },
+      aboutParams: {
+        id: 10,
+      },
+      // response data
+      aboutFileData: [],
+      aboutFileSwiperData: [],
+      swiperImages1: [],
+      swiperImages2: [],
+      aboutTitleData: [],
     };
   },
   methods: {
-    getFile() {
+    getAboutFile() {
       api
-        .file_files_source(this.fileParams)
+        .file_files_source(this.aboutFileParams)
         .then((res) => {
-          this.fileData = res.data;
+          this.aboutFileData = res.data;
         })
         .catch((Error) => {
           console.log(Error);
         });
     },
+    getAboutSwiperFile() {
+      api
+        .file_files_source(this.aboutFileSwiperParams)
+        .then((res) => {
+          this.aboutFileSwiperData = res.data;
+        })
+        .catch((Error) => {
+          console.log(Error);
+        });
+    },
+    getSwiperImages1() {
+      api.file_files_source(this.about_swiper_images1_params).then((res) => {
+        this.swiperImages1 = res.data;
+      });
+    },
+    getSwiperImages2() {
+      api.file_files_source(this.about_swiper_images2_params).then((res) => {
+        this.swiperImages2 = res.data;
+      });
+    },
+    getCategory() {
+      api.category_one(this.aboutParams).then((res) => {
+        this.aboutTitleData = res.data?.category_items;
+      });
+    },
   },
   created() {
-    this.getFile();
+    this.getAboutFile();
+    this.getAboutSwiperFile();
+    this.getSwiperImages1();
+    this.getCategory();
+    this.getSwiperImages2();
   },
 };
 </script>

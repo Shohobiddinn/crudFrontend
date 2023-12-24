@@ -1155,19 +1155,11 @@ img {
     font-size: 18px;
   }
 }
-.current_users .container-c img {
-  min-width: 90%;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  height: 318px;
-  border-radius: 36px;
+.current_users .container-c .current_users_swiper_slide img {
+  width: 100%;
+  max-width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-@media (max-width: 500px) {
-  .current_users .container-c img {
-    height: 250px;
-  }
 }
 
 .manual {
@@ -1225,17 +1217,36 @@ img {
   margin-bottom: 100px;
 }
 
+.videos_title {
+  font-family: "Roboto" sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
 .video-js .vjs-big-play-button {
   top: calc(50% - 1.6rem) !important;
   left: calc(50% - 3rem) !important;
 }
 
-.carousel__slide {
-  height: auto;
-  margin-bottom: 24px;
+.video_contents {
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 30px;
 }
-.carousel__slide .video-js {
-  margin-right: 16px;
+.video_contents .content {
+  width: calc(25% - 23px);
+}
+@media (max-width: 1000px) {
+  .video_contents .content {
+    width: 300px;
+  }
+}
+@media (max-width: 500px) {
+  .video_contents .content {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 600px) {
