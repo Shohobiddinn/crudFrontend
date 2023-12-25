@@ -20,12 +20,45 @@
         <h3 class="contact_title">{{ aboutTitleData[1]?.text }}</h3>
       </div>
       <div class="video_carusel">
-        <carousel
-          :items-to-show="4"
-          :wrap-around="true"
-          :breakpoints="breakPoints"
+        <swiper
+          class="current_users_swiper"
+          :slidesPerView="4"
+          :spaceBetween="30"
+          :cssMode="true"
+          :mousewheel="true"
+          :keyboard="true"
+          :direction="horizontal"
+          :loop="true"
+          :autoplay="{
+            delay: 1500,
+            disableOnInteraction: false,
+          }"
+          :modules="modules"
+          :breakpoints="{
+            '200': {
+              slidesPerView: 1,
+            },
+            '400': {
+              slidesPerView: 2,
+            },
+            '600': {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            '800': {
+              slidesPerView: 3,
+            },
+            '1020': {
+              spaceBetween: 30,
+              slidesPerView: 4,
+            },
+          }"
         >
-          <slide v-for="item in aboutFileSwiperData" :key="item.id">
+          <swiper-slide
+            class="current_users_swiper_slide"
+            v-for="item in aboutFileSwiperData"
+            :key="item.id"
+          >
             <VideoPlayer
               :src="url + item?.file"
               :controls="true"
@@ -33,38 +66,100 @@
               :responsive="true"
               style="width: 100%; background-color: inherit; object-fit: cover"
             />
-          </slide>
-        </carousel>
+          </swiper-slide>
+        </swiper>
       </div>
       <div class="title-box">
         <img src="/src/assets/images/slash.svg" alt="" />
         <h3 class="contact_title">{{ aboutTitleData[0]?.text }}</h3>
       </div>
       <div class="client-box">
-        <carousel
-          :items-to-show="5"
-          :autoplay="1500"
-          :wrap-around="true"
-          :breakpoints="breakPoints"
+        <swiper
+          class="swiper"
+          :slidesPerView="4"
+          :spaceBetween="30"
+          :cssMode="true"
+          :mousewheel="true"
+          :keyboard="true"
+          :direction="horizontal"
+          :loop="true"
+          :autoplay="{
+            delay: 2000,
+            disableOnInteraction: false,
+            reverseDirection: true,
+          }"
+          :modules="modules"
+          :breakpoints="{
+            '200': {
+              slidesPerView: 1,
+            },
+            '400': {
+              slidesPerView: 2,
+            },
+            '600': {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            '800': {
+              slidesPerView: 3,
+            },
+            '1020': {
+              spaceBetween: 30,
+              slidesPerView: 4,
+            },
+          }"
         >
-          <slide v-for="item in swiperImages1" :key="item.id">
-            <a class="client_link" href="">
-              <img class="client__img" :src="url + item?.file" alt="photo" />
-            </a>
-          </slide>
-        </carousel>
-        <carousel
-          :items-to-show="5"
-          :autoplay="1500"
-          :wrap-around="true"
-          :breakpoints="breakPoints"
+          <swiper-slide
+            class="swiper_slide"
+            v-for="item in swiperImages1"
+            :key="item"
+          >
+            <img :src="url + item?.file" alt="photo" />
+          </swiper-slide>
+        </swiper>
+
+        <swiper
+          class="swiper"
+          :slidesPerView="4"
+          :spaceBetween="30"
+          :cssMode="true"
+          :mousewheel="true"
+          :keyboard="true"
+          :direction="horizontal"
+          :loop="true"
+          :autoplay="{
+            delay: 2000,
+            disableOnInteraction: false,
+          }"
+          :modules="modules"
+          :breakpoints="{
+            '200': {
+              slidesPerView: 1,
+            },
+            '400': {
+              slidesPerView: 2,
+            },
+            '600': {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+            '800': {
+              slidesPerView: 3,
+            },
+            '1020': {
+              spaceBetween: 30,
+              slidesPerView: 4,
+            },
+          }"
         >
-          <slide v-for="item in swiperImages2" :key="item.id">
-            <a class="client_link" href="">
-              <img class="client__img" :src="url + item?.file" alt="photo" />
-            </a>
-          </slide>
-        </carousel>
+          <swiper-slide
+            class="swiper_slide"
+            v-for="item in swiperImages2"
+            :key="item"
+          >
+            <img :src="url + item?.file" alt="photo" />
+          </swiper-slide>
+        </swiper>
       </div>
       <contactBox />
     </div>
@@ -75,17 +170,24 @@ import sidebar from "/src/components/sidebar.vue";
 import contactBox from "../../components/contactBox.vue";
 import { VideoPlayer } from "@videojs-player/vue";
 import "video.js/dist/video-js.css";
-import "vue3-carousel/dist/carousel.css";
-import { Carousel, Slide } from "vue3-carousel";
 import api from "../../server/api";
 import baseurl from "../../server/baseurl";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
 export default {
+  setup() {
+    return {
+      modules: [Autoplay],
+    };
+  },
   components: {
     VideoPlayer,
-    Carousel,
-    Slide,
     sidebar,
     contactBox,
+    Swiper,
+    SwiperSlide,
   },
   data() {
     return {

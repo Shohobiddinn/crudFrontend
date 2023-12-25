@@ -298,6 +298,7 @@
           :cssMode="true"
           :mousewheel="true"
           :keyboard="true"
+          :direction="horizontal"
           :loop="true"
           :autoplay="{
             delay: 1500,
@@ -355,18 +356,18 @@
         </div>
       </div>
     </div>
-    <div class="container-c">
+    <div class="container-c mb-3" >
       <contactBox />
     </div>
   </div>
 </template>
   <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import contactBox from "../../components/contactBox.vue";
 import "swiper/css";
 import "swiper/css/autoplay";
 import { Autoplay } from "swiper/modules";
 import { VideoPlayer } from "@videojs-player/vue";
+import contactBox from "../../components/contactBox.vue";
 import "video.js/dist/video-js.css";
 import api from "../../server/api";
 import baseurl from "../../server/baseurl";

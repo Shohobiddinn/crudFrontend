@@ -1,9 +1,9 @@
-.about{
+.about {
   padding-bottom: 100px;
 
 }
 
-.about_box{
+.about_box {
   position: relative;
   border-radius: 30px;
   margin-bottom: 120px;
@@ -13,63 +13,77 @@
   animation: 2s anim-lineUp ease-out infinite;
 }
 
-.bg-shadow{
+.bg-shadow {
   content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.4 ;
-      background: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-      z-index: 0;
-      border-radius: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 0;
+  border-radius: inherit;
 }
 
-.client-box{
+.client-box {
   margin: 100px 0;
-  .carousel{
+
+  .swiper {
     margin-bottom: 50px;
 
+    &_slide {
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
   }
-  li{
+
+  li {
     width: 425px !important;
     margin-right: 20px;
   }
 }
-.client__img{
+
+.client__img {
   width: 100%;
   height: 100%;
 }
-.video_carusel{
+
+.video_carusel {
   margin-bottom: 45px;
 }
 
 
 @media screen and (max-width:600px) {
-  .about{
-    .container-c{
+  .about {
+    .container-c {
       padding: 0;
     }
   }
-  .about_box{
+
+  .about_box {
     height: 500px;
     margin-bottom: 20px;
     height: 350px;
-    & .video-js{
+
+    & .video-js {
       height: 100%;
     }
   }
-  .client-box{
+
+  .client-box {
     margin-top: 20px;
-    & .carousel__slide{
+
+    & .carousel__slide {
       width: 100%;
       max-width: 300px;
       height: 220px;
     }
   }
 
-  .client__img{
+  .client__img {
     width: 100%;
     max-width: 300px;
   }
@@ -87,13 +101,16 @@
     opacity: 0;
     transform: translateY(70%);
   }
+
   20% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
     transform: translateY(0%);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0%);

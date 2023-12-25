@@ -236,12 +236,6 @@ img {
   color: #fff;
   width: 100%;
   margin: 0 auto;
-  margin-bottom: 50px;
-}
-@media (max-width: 500px) {
-  .contact {
-    margin-bottom: 30px;
-  }
 }
 
 .title-box {
@@ -1301,8 +1295,13 @@ img {
 .client-box {
   margin: 100px 0;
 }
-.client-box .carousel {
+.client-box .swiper {
   margin-bottom: 50px;
+}
+.client-box .swiper_slide img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .client-box li {
   width: 425px !important;
