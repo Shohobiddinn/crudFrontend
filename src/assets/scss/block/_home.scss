@@ -5,6 +5,10 @@
   padding: 40px 0;
   z-index: 2;
 
+  @include media(1000px) {
+    display: none;
+  }
+
   & .navigate_list {
     display: flex;
     align-items: center;
@@ -43,6 +47,11 @@
 
 .home_navigation {
   position: relative;
+  display: none;
+
+  @include media(1000px) {
+    display: block;
+  }
 
   &_btn {
     background: none;
@@ -52,7 +61,8 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-
+    align-self: flex-start;
+    transform: translateY(-10px);
   }
 
   &_box {
@@ -67,6 +77,20 @@
     border: 1px solid #FFF;
     background: linear-gradient(180deg, rgba(0, 46, 65, 0.29) 0%, rgba(0, 46, 65, 0.00) 149.76%);
     backdrop-filter: blur(20px);
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+
+    @include media(410px) {
+      width: 280px;
+    }
+
+    &.active {
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+    }
 
     &_btn {
       background: none;
@@ -79,7 +103,27 @@
       position: absolute;
       left: 0;
       top: 50%;
-      transform: translate(-50%,-20px);
+      transform: translate(-50%, -20px);
+    }
+
+    .home_navigation_box_list {
+      .navigate_item {
+
+        .navigate_link {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 22px;
+          text-transform: uppercase;
+          color: #fff;
+          transition: all 0.3s ease;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            color: #900;
+          }
+        }
+      }
     }
   }
 }

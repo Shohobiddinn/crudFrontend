@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="home_navigate d-none">
+    <nav class="home_navigate">
       <ul class="navigate_list">
         <li class="navigate_item">
           <a href="#dastur" class="navigate_link">{{ bannerData[4]?.text }}</a>
@@ -38,22 +38,35 @@
       <RouterLink @click="activeFunc()" class="d-inline-block" to="/">
         <img class="navigate_img" src="/src/assets/images/Crud.svg" alt="" />
       </RouterLink>
-      <button class="home_navigation_btn" type="button">
-          <i class="fa-solid fa-arrow-left text-white"></i>
-        </button>
-      <div class="home_navigation_box pt-5">
-        <button class="home_navigation_box_btn" type="button">
+      <button
+        class="home_navigation_btn"
+        type="button"
+        v-if="!navbar"
+        @click="navbar = true"
+      >
+        <i class="fa-solid fa-arrow-left text-white"></i>
+      </button>
+      <div class="home_navigation_box pt-5 ps-3" :class="{ active: navbar }">
+        <button
+          class="home_navigation_box_btn"
+          type="button"
+          @click="navbar = false"
+        >
           <i class="fa-solid fa-arrow-right text-white"></i>
         </button>
         <RouterLink
           @click="activeFunc()"
-          class="d-inline-block navbar-box"
+          class="d-inline-block home_navigation_box_img col-10 mb-3"
           to="/"
         >
-          <img class="navigate_img" src="/src/assets/images/Crud.svg" alt="" />
+          <img
+            class="home_navigation_box_img_logo col-12"
+            src="/src/assets/images/Crud.svg"
+            alt=""
+          />
         </RouterLink>
 
-        <ul class="navigate_list">
+        <ul class="home_navigation_box_list" @click="navbar = false">
           <li class="navigate_item">
             <a href="#dastur" class="navigate_link">{{
               bannerData[4]?.text
@@ -393,6 +406,7 @@ export default {
     return {
       url: baseurl,
       show: true,
+      navbar: false,
       text: [
         {
           title: "Biznesingizga <span>oson</span> yechim topamiz",
@@ -484,12 +498,10 @@ export default {
         this.show = !this.show;
       }, 2000);
     },
-    // activeFunc() {
-    //    document.querySelector(".navbar-box").classList.toggle("show");
-    //  },
-    //  toggleBtn() {
-    //    document.querySelector(".navbar-box").classList.toggle("show");
-    //  },
+    activeFunc() {
+      this.navbar = false;
+    },
+
     // get function
     getBanner() {
       api.category_one(this.bannerParams).then((res) => {
