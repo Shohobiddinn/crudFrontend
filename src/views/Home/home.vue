@@ -560,6 +560,10 @@ export default {
     this.getUserFile();
     this.getCurrentUserFile();
     this.getManualFile();
+    window.onclick = (event) => {
+      if (!event.target.closest('.home_navigation_box') && !event.target.closest('.home_navigation_btn')) this.navbar = false;
+
+    };
   },
 };
 </script>

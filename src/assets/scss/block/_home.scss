@@ -47,10 +47,16 @@
 
 .home_navigation {
   position: relative;
+  max-width: 1300px;
+  margin: 0 auto;
   display: none;
+  opacity: 0;
+  visibility: hidden;
 
   @include media(1000px) {
     display: block;
+    opacity: 1;
+    visibility: visible;
   }
 
   &_btn {
