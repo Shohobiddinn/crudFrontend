@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navigate">
+    <nav class="home_navigate d-none">
       <ul class="navigate_list">
         <li class="navigate_item">
           <a href="#dastur" class="navigate_link">{{ bannerData[4]?.text }}</a>
@@ -34,38 +34,46 @@
         </li>
       </ul>
     </nav>
-    <nav class="navigation">
+    <nav class="home_navigation d-flex justify-content-between mt-4">
       <RouterLink @click="activeFunc()" class="d-inline-block" to="/">
         <img class="navigate_img" src="/src/assets/images/Crud.svg" alt="" />
       </RouterLink>
+      <button class="home_navigation_btn" type="button">
+          <i class="fa-solid fa-arrow-left text-white"></i>
+        </button>
+      <div class="home_navigation_box pt-5">
+        <button class="home_navigation_box_btn" type="button">
+          <i class="fa-solid fa-arrow-right text-white"></i>
+        </button>
+        <RouterLink
+          @click="activeFunc()"
+          class="d-inline-block navbar-box"
+          to="/"
+        >
+          <img class="navigate_img" src="/src/assets/images/Crud.svg" alt="" />
+        </RouterLink>
 
-      <div class="navbar-box">
-        <div class="container-btn" @click="toggleBtn()">
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
-        </div>
         <ul class="navigate_list">
           <li class="navigate_item">
-            <a href="#dastur" @click="activeFunc()" class="navigate_link">{{
+            <a href="#dastur" class="navigate_link">{{
               bannerData[4]?.text
             }}</a>
           </li>
 
           <li class="navigate_item">
-            <a href="#dastur" @click="activeFunc()" class="navigate_link">{{
+            <a href="#dastur" class="navigate_link">{{
               bannerData[3]?.text
             }}</a>
           </li>
 
           <li class="navigate_item">
-            <a href="#yonalish" @click="activeFunc()" class="navigate_link">{{
+            <a href="#yonalish" class="navigate_link">{{
               bannerData[2]?.text
             }}</a>
           </li>
 
           <li class="navigate_item">
-            <a href="#video" @click="activeFunc()" class="navigate_link">
+            <a href="#video" class="navigate_link">
               {{ bannerData[1]?.text }}
             </a>
           </li>
@@ -325,7 +333,11 @@
             },
           }"
         >
-          <swiper-slide class="current_users_swiper_slide" v-for="item in currentUserData" :key="item">
+          <swiper-slide
+            class="current_users_swiper_slide"
+            v-for="item in currentUserData"
+            :key="item"
+          >
             <img :src="url + item?.file" alt="photo" />
           </swiper-slide>
         </swiper>
@@ -347,16 +359,16 @@
         </div>
         <div class="manual_video">
           <VideoPlayer
-          :src="url + manualFileData[0]?.file"
-          :controls="true"
-          :fullscreen="true"
-          :responsive="true"
-          style="width: 100%; background-color: inherit; object-fit: cover"
-        />
+            :src="url + manualFileData[0]?.file"
+            :controls="true"
+            :fullscreen="true"
+            :responsive="true"
+            style="width: 100%; background-color: inherit; object-fit: cover"
+          />
         </div>
       </div>
     </div>
-    <div class="container-c mb-3" >
+    <div class="container-c mb-3">
       <contactBox />
     </div>
   </div>
@@ -472,12 +484,12 @@ export default {
         this.show = !this.show;
       }, 2000);
     },
-    activeFunc() {
-      document.querySelector(".navbar-box").classList.toggle("show");
-    },
-    toggleBtn() {
-      document.querySelector(".navbar-box").classList.toggle("show");
-    },
+    // activeFunc() {
+    //    document.querySelector(".navbar-box").classList.toggle("show");
+    //  },
+    //  toggleBtn() {
+    //    document.querySelector(".navbar-box").classList.toggle("show");
+    //  },
     // get function
     getBanner() {
       api.category_one(this.bannerParams).then((res) => {
@@ -524,7 +536,6 @@ export default {
         this.manualFileData = res.data;
       });
     },
-
   },
   created() {
     this.showTitle();
