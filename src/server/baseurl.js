@@ -1,1 +1,1 @@
-export default "https://crud.pr-akmaljon.uz/";
+export default 'https://api-crud.uz/';
